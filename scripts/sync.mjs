@@ -1,7 +1,8 @@
 // Copies each tool's compiled, self-contained index.html from its sibling
-// source repo into this site. Re-run whenever paper-wallet-btc or
-// my-wallet-btc gets rebuilt (`npm run build` in that repo) and you want
-// the site to serve the new version.
+// source repo into this site. Re-run whenever paper-wallet-btc,
+// my-wallet-btc, psbt-signer-btc, or btc-airgap-bridge gets rebuilt
+// (`npm run build` in that repo) and you want the site to serve the new
+// version.
 import { copyFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -13,6 +14,8 @@ const workspace = join(root, '..'); // ../workspace-ideas
 const tools = [
   { src: join(workspace, 'paper-wallet-btc', 'dist', 'index.html'), dest: join(root, 'paper-wallet-btc', 'index.html') },
   { src: join(workspace, 'my_btc_wallet', 'dist', 'index.html'), dest: join(root, 'my-wallet-btc', 'index.html') },
+  { src: join(workspace, 'psbt-signer-btc', 'dist', 'index.html'), dest: join(root, 'psbt-signer-btc', 'index.html') },
+  { src: join(workspace, 'btc-airgap-bridge', 'dist', 'index.html'), dest: join(root, 'btc-airgap-bridge', 'index.html') },
 ];
 
 for (const { src, dest } of tools) {

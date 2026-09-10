@@ -1,8 +1,10 @@
 # wallet-tools-site
 
 Landing page para las herramientas de Bitcoin de SatsForge:
-[paper-wallet-btc](https://github.com/satsforge/paper-wallet-btc) y
-[my-wallet-btc](https://github.com/satsforge/my-wallet-btc).
+[paper-wallet-btc](https://github.com/satsforge/paper-wallet-btc),
+[my-wallet-btc](https://github.com/satsforge/my-wallet-btc),
+[psbt-signer-btc](https://github.com/satsforge/psbt-signer-btc) y
+[btc-airgap-bridge](https://github.com/satsforge/btc-airgap-bridge).
 
 Sitio 100% estático, sin build step ni backend — sirve directo con
 cualquier host de archivos estáticos (GitHub Pages, Vercel, Netlify, un
@@ -11,11 +13,15 @@ bucket S3, etc.).
 ## Estructura
 
 ```
-index.html              landing page (linkea a las dos herramientas)
+index.html              landing page (linkea a las cuatro herramientas)
 paper-wallet-btc/
   index.html             copia del build de paper-wallet-btc
 my-wallet-btc/
   index.html             copia del build de my-wallet-btc
+psbt-signer-btc/
+  index.html             copia del build de psbt-signer-btc
+btc-airgap-bridge/
+  index.html             copia del build de btc-airgap-bridge
 scripts/sync.mjs         copia el último build de cada herramienta a este repo
 ```
 
@@ -27,16 +33,18 @@ Cada herramienta vive en su propio repo. Cuando cambie alguna:
 # 1. Reconstruir la herramienta en su propio repo
 cd ../paper-wallet-btc && npm run build
 # (o) cd ../my_btc_wallet && npm run build
+# (o) cd ../psbt-signer-btc && npm run build
+# (o) cd ../btc-airgap-bridge && npm run build
 
 # 2. Volver acá y sincronizar
 cd ../wallet-tools-site
 node scripts/sync.mjs
 ```
 
-`sync.mjs` asume que este repo vive como carpeta hermana de `paper-wallet-btc`
-y `my_btc_wallet` (mismo nivel, en el mismo `workspace-ideas`). Si lo cloná
-en otro lado, editá las rutas en `scripts/sync.mjs` o copiá los `dist/index.html`
-a mano.
+`sync.mjs` asume que este repo vive como carpeta hermana de `paper-wallet-btc`,
+`my_btc_wallet`, `psbt-signer-btc` y `btc-airgap-bridge` (mismo nivel, en el
+mismo `workspace-ideas`). Si lo cloná en otro lado, editá las rutas en
+`scripts/sync.mjs` o copiá los `dist/index.html` a mano.
 
 ## Deploy
 
