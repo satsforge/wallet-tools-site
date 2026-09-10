@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Herramientas de Bitcoin 100% del lado del cliente: generá una wallet nueva en papel, accedé a una existente y enviá fondos, firmá un PSBT offline, o consultá UTXOs y transmití una transacción ya firmada.">
+<meta name="description" content="Herramientas de Bitcoin 100% del lado del cliente: generá una wallet nueva en papel, accedé a una existente y enviá fondos, firmá un PSBT offline, consultá UTXOs y transmití una transacción ya firmada, o coordiná una wallet multifirma.">
 <title>SatsForge — Herramientas de Bitcoin</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23f7931a'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='20' font-weight='bold' fill='%231a1200' text-anchor='middle'%3E%E2%82%BF%3C/text%3E%3C/svg%3E">
 <style>
@@ -95,7 +95,8 @@ body { padding: 24px 16px 64px; }
 .notice strong { color: var(--danger); }
 .notice h3 { margin: 0 0 8px; font-size: 15px; color: var(--text); }
 
-.compare { width: 100%; border-collapse: collapse; margin-bottom: 40px; font-size: 13.5px; }
+.compare-wrap { overflow-x: auto; margin-bottom: 40px; }
+.compare { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 13.5px; }
 .compare th, .compare td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); }
 .compare th { color: var(--text-dim); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
 .compare td:first-child, .compare th:first-child { color: var(--text-dim); }
@@ -118,7 +119,7 @@ footer a:hover { text-decoration: underline; }
 
   <div class="hero">
     <h1 data-i18n="hero.title">Herramientas de Bitcoin, 100% del lado del cliente</h1>
-    <p data-i18n="hero.subtitle">Cuatro herramientas de código abierto que corren enteramente en tu navegador — nada de lo que generás,
+    <p data-i18n="hero.subtitle">Cinco herramientas de código abierto que corren enteramente en tu navegador — nada de lo que generás,
        desbloqueás o firmás sale de la pestaña salvo lo que vos decidas transmitir a la red.</p>
   </div>
 
@@ -190,6 +191,23 @@ footer a:hover { text-decoration: underline; }
         <a class="btn btn-secondary" href="https://github.com/satsforge/btc-airgap-bridge" target="_blank" rel="noopener noreferrer" data-i18n="card.source">Código fuente ↗</a>
       </div>
     </div>
+
+    <div class="card">
+      <div class="kicker" data-i18n="card.multisig.kicker">Coordinar · Fase 1</div>
+      <h2>Coordinador Multifirma BTC</h2>
+      <p data-i18n="card.multisig.desc">Armá una wallet multifirma (P2WSH) M-de-N a partir de las claves públicas de cada cosigner
+         o de un descriptor ya armado, y consultá su saldo real. Todavía no arma ni firma transacciones.</p>
+      <ul>
+        <li data-i18n="card.multisig.li1">Descriptores wsh(sortedmulti(...)), BIP67</li>
+        <li data-i18n="card.multisig.li2">Nunca pide ninguna clave privada</li>
+        <li data-i18n="card.multisig.li3">Exportá/reimportá la wallet como descriptor</li>
+        <li data-i18n="card.multisig.li4">Testnet y mainnet</li>
+      </ul>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="./multisig-coordinator-btc/index.html" data-i18n="card.useNow">Usar ahora →</a>
+        <a class="btn btn-secondary" href="https://github.com/satsforge/multisig-coordinator-btc" target="_blank" rel="noopener noreferrer" data-i18n="card.source">Código fuente ↗</a>
+      </div>
+    </div>
   </div>
 
   <div class="notice">
@@ -200,9 +218,10 @@ footer a:hover { text-decoration: underline; }
     de internet. Para acceder a fondos con My Wallet BTC, probá primero en <strong>testnet</strong> con monedas sin valor.</span>
   </div>
 
+  <div class="compare-wrap">
   <table class="compare">
     <thead>
-      <tr><th></th><th>Paper Wallet BTC</th><th>My Wallet BTC</th><th>PSBT Signer BTC</th><th>BTC Airgap Bridge</th></tr>
+      <tr><th></th><th>Paper Wallet BTC</th><th>My Wallet BTC</th><th>PSBT Signer BTC</th><th>BTC Airgap Bridge</th><th>Coordinador Multifirma BTC</th></tr>
     </thead>
     <tbody>
       <tr>
@@ -211,6 +230,7 @@ footer a:hover { text-decoration: underline; }
         <td data-i18n="compare.purpose.access">Acceder a una wallet existente</td>
         <td data-i18n="compare.purpose.sign">Firmar una transacción ya armada</td>
         <td data-i18n="compare.purpose.bridge">Consultar UTXOs y transmitir</td>
+        <td data-i18n="compare.purpose.multisig">Armar y consultar una wallet M-de-N</td>
       </tr>
       <tr>
         <td data-i18n="compare.network">Red</td>
@@ -218,6 +238,7 @@ footer a:hover { text-decoration: underline; }
         <td data-i18n="compare.network.access">Sí — consulta saldo y transmite</td>
         <td data-i18n="compare.network.sign">Ninguna (air-gapped)</td>
         <td data-i18n="compare.network.bridge">Sí, siempre — es su propósito</td>
+        <td data-i18n="compare.network.multisig">Sí — consulta saldo</td>
       </tr>
       <tr>
         <td data-i18n="compare.input">Entrada</td>
@@ -225,6 +246,7 @@ footer a:hover { text-decoration: underline; }
         <td data-i18n="compare.input.access">Semilla, semilla cifrada, WIF o clave BIP38</td>
         <td data-i18n="compare.input.sign">Lo anterior + un PSBT sin firmar</td>
         <td data-i18n="compare.input.bridge">Direcciones, o una transacción ya firmada</td>
+        <td data-i18n="compare.input.multisig">xpubs de cada cosigner, o un descriptor</td>
       </tr>
       <tr>
         <td data-i18n="compare.output">Salida</td>
@@ -232,9 +254,11 @@ footer a:hover { text-decoration: underline; }
         <td data-i18n="compare.output.access">Panel de saldo y envío de fondos</td>
         <td data-i18n="compare.output.sign">Transacción firmada (hex, QR o PSBT parcial)</td>
         <td data-i18n="compare.output.bridge">UTXOs (.json) o TXID transmitido</td>
+        <td data-i18n="compare.output.multisig">Panel de saldo y descriptor exportable</td>
       </tr>
     </tbody>
   </table>
+  </div>
 
   <footer data-i18n="footer.note">
     Todo el código es abierto y auditable en
@@ -253,8 +277,8 @@ footer a:hover { text-decoration: underline; }
 
     'hero.title': { es: 'Herramientas de Bitcoin, 100% del lado del cliente', en: 'Bitcoin tools, 100% client-side' },
     'hero.subtitle': {
-      es: 'Cuatro herramientas de código abierto que corren enteramente en tu navegador — nada de lo que generás, desbloqueás o firmás sale de la pestaña salvo lo que vos decidas transmitir a la red.',
-      en: 'Four open-source tools that run entirely in your browser — nothing you generate, unlock, or sign leaves the tab except what you choose to broadcast to the network.',
+      es: 'Cinco herramientas de código abierto que corren enteramente en tu navegador — nada de lo que generás, desbloqueás o firmás sale de la pestaña salvo lo que vos decidas transmitir a la red.',
+      en: 'Five open-source tools that run entirely in your browser — nothing you generate, unlock, or sign leaves the tab except what you choose to broadcast to the network.',
     },
 
     'card.generate.kicker': { es: 'Generar', en: 'Generate' },
@@ -297,6 +321,16 @@ footer a:hover { text-decoration: underline; }
     'card.bridge.li3': { es: 'Revisión obligatoria antes de transmitir', en: 'Mandatory review before broadcasting' },
     'card.bridge.li4': { es: 'Testnet y mainnet', en: 'Testnet and mainnet' },
 
+    'card.multisig.kicker': { es: 'Coordinar · Fase 1', en: 'Coordinate · Phase 1' },
+    'card.multisig.desc': {
+      es: 'Armá una wallet multifirma (P2WSH) M-de-N a partir de las claves públicas de cada cosigner o de un descriptor ya armado, y consultá su saldo real. Todavía no arma ni firma transacciones.',
+      en: 'Build an M-of-N multisig (P2WSH) wallet from each cosigner\'s public key or from an existing descriptor, and check its real balance. It does not build or sign transactions yet.',
+    },
+    'card.multisig.li1': { es: 'Descriptores wsh(sortedmulti(...)), BIP67', en: 'wsh(sortedmulti(...)) descriptors, BIP67' },
+    'card.multisig.li2': { es: 'Nunca pide ninguna clave privada', en: 'Never asks for any private key' },
+    'card.multisig.li3': { es: 'Exportá/reimportá la wallet como descriptor', en: 'Export/re-import the wallet as a descriptor' },
+    'card.multisig.li4': { es: 'Testnet y mainnet', en: 'Testnet and mainnet' },
+
     'card.useNow': { es: 'Usar ahora →', en: 'Use it now →' },
     'card.source': { es: 'Código fuente ↗', en: 'Source code ↗' },
 
@@ -311,21 +345,25 @@ footer a:hover { text-decoration: underline; }
     'compare.purpose.access': { es: 'Acceder a una wallet existente', en: 'Access an existing wallet' },
     'compare.purpose.sign': { es: 'Firmar una transacción ya armada', en: 'Sign an already-built transaction' },
     'compare.purpose.bridge': { es: 'Consultar UTXOs y transmitir', en: 'Query UTXOs and broadcast' },
+    'compare.purpose.multisig': { es: 'Armar y consultar una wallet M-de-N', en: 'Build and check an M-of-N wallet' },
     'compare.network': { es: 'Red', en: 'Network' },
     'compare.network.generate': { es: 'Ninguna (air-gapped)', en: 'None (air-gapped)' },
     'compare.network.access': { es: 'Sí — consulta saldo y transmite', en: 'Yes — checks balance and broadcasts' },
     'compare.network.sign': { es: 'Ninguna (air-gapped)', en: 'None (air-gapped)' },
     'compare.network.bridge': { es: 'Sí, siempre — es su propósito', en: 'Yes, always — that is its purpose' },
+    'compare.network.multisig': { es: 'Sí — consulta saldo', en: 'Yes — checks balance' },
     'compare.input': { es: 'Entrada', en: 'Input' },
     'compare.input.generate': { es: 'Entropía del navegador / dados', en: 'Browser entropy / dice' },
     'compare.input.access': { es: 'Semilla, semilla cifrada, WIF o clave BIP38', en: 'Seed, encrypted seed, WIF, or BIP38 key' },
     'compare.input.sign': { es: 'Lo anterior + un PSBT sin firmar', en: 'The above + an unsigned PSBT' },
     'compare.input.bridge': { es: 'Direcciones, o una transacción ya firmada', en: 'Addresses, or an already-signed transaction' },
+    'compare.input.multisig': { es: 'xpubs de cada cosigner, o un descriptor', en: 'Each cosigner\'s xpub, or a descriptor' },
     'compare.output': { es: 'Salida', en: 'Output' },
     'compare.output.generate': { es: 'PDF imprimible', en: 'Printable PDF' },
     'compare.output.access': { es: 'Panel de saldo y envío de fondos', en: 'Balance panel and fund sending' },
     'compare.output.sign': { es: 'Transacción firmada (hex, QR o PSBT parcial)', en: 'Signed transaction (hex, QR, or partial PSBT)' },
     'compare.output.bridge': { es: 'UTXOs (.json) o TXID transmitido', en: 'UTXOs (.json) or a broadcast TXID' },
+    'compare.output.multisig': { es: 'Panel de saldo y descriptor exportable', en: 'Balance panel and an exportable descriptor' },
 
     'footer.note': {
       es: 'Todo el código es abierto y auditable en <a href="https://github.com/satsforge" target="_blank" rel="noopener noreferrer">github.com/satsforge</a>. Ninguna de las herramientas usa cookies, almacenamiento persistente, ni envía tu semilla o clave privada a ningún servidor.',
