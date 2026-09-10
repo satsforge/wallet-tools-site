@@ -193,14 +193,14 @@ footer a:hover { text-decoration: underline; }
     </div>
 
     <div class="card">
-      <div class="kicker" data-i18n="card.multisig.kicker">Coordinar · Fase 1</div>
+      <div class="kicker" data-i18n="card.multisig.kicker">Coordinar · Fase 2</div>
       <h2>Coordinador Multifirma BTC</h2>
-      <p data-i18n="card.multisig.desc">Armá una wallet multifirma (P2WSH) M-de-N a partir de las claves públicas de cada cosigner
-         o de un descriptor ya armado, y consultá su saldo real. Todavía no arma ni firma transacciones.</p>
+      <p data-i18n="card.multisig.desc">Armá una wallet multifirma (P2WSH) M-de-N, consultá su saldo real, armá una transacción de
+         gasto y coordiná las firmas de los cosigners hasta juntar el quorum.</p>
       <ul>
         <li data-i18n="card.multisig.li1">Descriptores wsh(sortedmulti(...)), BIP67</li>
         <li data-i18n="card.multisig.li2">Nunca pide ninguna clave privada</li>
-        <li data-i18n="card.multisig.li3">Exportá/reimportá la wallet como descriptor</li>
+        <li data-i18n="card.multisig.li3">Arma, exporta y combina PSBTs entre cosigners</li>
         <li data-i18n="card.multisig.li4">Testnet y mainnet</li>
       </ul>
       <div class="btn-row">
@@ -321,14 +321,14 @@ footer a:hover { text-decoration: underline; }
     'card.bridge.li3': { es: 'Revisión obligatoria antes de transmitir', en: 'Mandatory review before broadcasting' },
     'card.bridge.li4': { es: 'Testnet y mainnet', en: 'Testnet and mainnet' },
 
-    'card.multisig.kicker': { es: 'Coordinar · Fase 1', en: 'Coordinate · Phase 1' },
+    'card.multisig.kicker': { es: 'Coordinar · Fase 2', en: 'Coordinate · Phase 2' },
     'card.multisig.desc': {
-      es: 'Armá una wallet multifirma (P2WSH) M-de-N a partir de las claves públicas de cada cosigner o de un descriptor ya armado, y consultá su saldo real. Todavía no arma ni firma transacciones.',
-      en: 'Build an M-of-N multisig (P2WSH) wallet from each cosigner\'s public key or from an existing descriptor, and check its real balance. It does not build or sign transactions yet.',
+      es: 'Armá una wallet multifirma (P2WSH) M-de-N, consultá su saldo real, armá una transacción de gasto y coordiná las firmas de los cosigners hasta juntar el quorum.',
+      en: 'Build an M-of-N multisig (P2WSH) wallet, check its real balance, build a spending transaction, and coordinate cosigner signatures until the quorum is met.',
     },
     'card.multisig.li1': { es: 'Descriptores wsh(sortedmulti(...)), BIP67', en: 'wsh(sortedmulti(...)) descriptors, BIP67' },
     'card.multisig.li2': { es: 'Nunca pide ninguna clave privada', en: 'Never asks for any private key' },
-    'card.multisig.li3': { es: 'Exportá/reimportá la wallet como descriptor', en: 'Export/re-import the wallet as a descriptor' },
+    'card.multisig.li3': { es: 'Arma, exporta y combina PSBTs entre cosigners', en: 'Builds, exports, and combines PSBTs across cosigners' },
     'card.multisig.li4': { es: 'Testnet y mainnet', en: 'Testnet and mainnet' },
 
     'card.useNow': { es: 'Usar ahora →', en: 'Use it now →' },
@@ -345,7 +345,7 @@ footer a:hover { text-decoration: underline; }
     'compare.purpose.access': { es: 'Acceder a una wallet existente', en: 'Access an existing wallet' },
     'compare.purpose.sign': { es: 'Firmar una transacción ya armada', en: 'Sign an already-built transaction' },
     'compare.purpose.bridge': { es: 'Consultar UTXOs y transmitir', en: 'Query UTXOs and broadcast' },
-    'compare.purpose.multisig': { es: 'Armar y consultar una wallet M-de-N', en: 'Build and check an M-of-N wallet' },
+    'compare.purpose.multisig': { es: 'Armar/consultar una wallet M-de-N y coordinar PSBTs', en: 'Build/check an M-of-N wallet and coordinate PSBTs' },
     'compare.network': { es: 'Red', en: 'Network' },
     'compare.network.generate': { es: 'Ninguna (air-gapped)', en: 'None (air-gapped)' },
     'compare.network.access': { es: 'Sí — consulta saldo y transmite', en: 'Yes — checks balance and broadcasts' },
@@ -357,13 +357,13 @@ footer a:hover { text-decoration: underline; }
     'compare.input.access': { es: 'Semilla, semilla cifrada, WIF o clave BIP38', en: 'Seed, encrypted seed, WIF, or BIP38 key' },
     'compare.input.sign': { es: 'Lo anterior + un PSBT sin firmar', en: 'The above + an unsigned PSBT' },
     'compare.input.bridge': { es: 'Direcciones, o una transacción ya firmada', en: 'Addresses, or an already-signed transaction' },
-    'compare.input.multisig': { es: 'xpubs de cada cosigner, o un descriptor', en: 'Each cosigner\'s xpub, or a descriptor' },
+    'compare.input.multisig': { es: 'xpubs/descriptor, y PSBTs firmados de los cosigners', en: 'xpubs/descriptor, and cosigners\' signed PSBTs' },
     'compare.output': { es: 'Salida', en: 'Output' },
     'compare.output.generate': { es: 'PDF imprimible', en: 'Printable PDF' },
     'compare.output.access': { es: 'Panel de saldo y envío de fondos', en: 'Balance panel and fund sending' },
     'compare.output.sign': { es: 'Transacción firmada (hex, QR o PSBT parcial)', en: 'Signed transaction (hex, QR, or partial PSBT)' },
     'compare.output.bridge': { es: 'UTXOs (.json) o TXID transmitido', en: 'UTXOs (.json) or a broadcast TXID' },
-    'compare.output.multisig': { es: 'Panel de saldo y descriptor exportable', en: 'Balance panel and an exportable descriptor' },
+    'compare.output.multisig': { es: 'Saldo, descriptor, PSBT sin firmar o tx final', en: 'Balance, descriptor, unsigned PSBT, or final tx' },
 
     'footer.note': {
       es: 'Todo el código es abierto y auditable en <a href="https://github.com/satsforge" target="_blank" rel="noopener noreferrer">github.com/satsforge</a>. Ninguna de las herramientas usa cookies, almacenamiento persistente, ni envía tu semilla o clave privada a ningún servidor.',
