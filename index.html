@@ -119,7 +119,7 @@ footer a:hover { text-decoration: underline; }
 
   <div class="hero">
     <h1 data-i18n="hero.title">Herramientas de Bitcoin, 100% del lado del cliente</h1>
-    <p data-i18n="hero.subtitle">Cinco herramientas de código abierto que corren enteramente en tu navegador — nada de lo que generás,
+    <p data-i18n="hero.subtitle">Seis herramientas de código abierto que corren enteramente en tu navegador — nada de lo que generás,
        desbloqueás o firmás sale de la pestaña salvo lo que vos decidas transmitir a la red.</p>
   </div>
 
@@ -208,6 +208,23 @@ footer a:hover { text-decoration: underline; }
         <a class="btn btn-secondary" href="https://github.com/satsforge/multisig-coordinator-btc" target="_blank" rel="noopener noreferrer" data-i18n="card.source">Código fuente ↗</a>
       </div>
     </div>
+
+    <div class="card">
+      <div class="kicker" data-i18n="card.inheritance.kicker">Planificar</div>
+      <h2>Planificador de Herencia BTC</h2>
+      <p data-i18n="card.inheritance.desc">Respondé un cuestionario sobre tu custodia actual y obtené un plan de respaldo y documentación
+         para tus herederos — sin pedir ninguna clave, sin conexión de red, sin guardar nada.</p>
+      <ul>
+        <li data-i18n="card.inheritance.li1">Nunca pide ninguna clave de Bitcoin</li>
+        <li data-i18n="card.inheritance.li2">Diagnóstico de riesgo + camino de mejora</li>
+        <li data-i18n="card.inheritance.li3">Exportá como texto, PDF, o cifrado</li>
+        <li data-i18n="card.inheritance.li4">Cero llamadas de red (bloqueado por CSP)</li>
+      </ul>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="./inheritance-planner-btc/index.html" data-i18n="card.useNow">Usar ahora →</a>
+        <a class="btn btn-secondary" href="https://github.com/satsforge/inheritance-planner-btc" target="_blank" rel="noopener noreferrer" data-i18n="card.source">Código fuente ↗</a>
+      </div>
+    </div>
   </div>
 
   <div class="notice">
@@ -221,7 +238,7 @@ footer a:hover { text-decoration: underline; }
   <div class="compare-wrap">
   <table class="compare">
     <thead>
-      <tr><th></th><th>Paper Wallet BTC</th><th>My Wallet BTC</th><th>PSBT Signer BTC</th><th>BTC Airgap Bridge</th><th>Coordinador Multifirma BTC</th></tr>
+      <tr><th></th><th>Paper Wallet BTC</th><th>My Wallet BTC</th><th>PSBT Signer BTC</th><th>BTC Airgap Bridge</th><th>Coordinador Multifirma BTC</th><th>Planificador de Herencia BTC</th></tr>
     </thead>
     <tbody>
       <tr>
@@ -231,6 +248,7 @@ footer a:hover { text-decoration: underline; }
         <td data-i18n="compare.purpose.sign">Firmar una transacción ya armada</td>
         <td data-i18n="compare.purpose.bridge">Consultar UTXOs y transmitir</td>
         <td data-i18n="compare.purpose.multisig">Armar y consultar una wallet M-de-N</td>
+        <td data-i18n="compare.purpose.inheritance">Planificar respaldo y herencia</td>
       </tr>
       <tr>
         <td data-i18n="compare.network">Red</td>
@@ -239,6 +257,7 @@ footer a:hover { text-decoration: underline; }
         <td data-i18n="compare.network.sign">Ninguna (air-gapped)</td>
         <td data-i18n="compare.network.bridge">Sí, siempre — es su propósito</td>
         <td data-i18n="compare.network.multisig">Sí — consulta saldo</td>
+        <td data-i18n="compare.network.inheritance">Ninguna (air-gapped)</td>
       </tr>
       <tr>
         <td data-i18n="compare.input">Entrada</td>
@@ -247,6 +266,7 @@ footer a:hover { text-decoration: underline; }
         <td data-i18n="compare.input.sign">Lo anterior + un PSBT sin firmar</td>
         <td data-i18n="compare.input.bridge">Direcciones, o una transacción ya firmada</td>
         <td data-i18n="compare.input.multisig">xpubs de cada cosigner, o un descriptor</td>
+        <td data-i18n="compare.input.inheritance">Respuestas de un cuestionario (nunca una clave)</td>
       </tr>
       <tr>
         <td data-i18n="compare.output">Salida</td>
@@ -255,6 +275,7 @@ footer a:hover { text-decoration: underline; }
         <td data-i18n="compare.output.sign">Transacción firmada (hex, QR o PSBT parcial)</td>
         <td data-i18n="compare.output.bridge">UTXOs (.json) o TXID transmitido</td>
         <td data-i18n="compare.output.multisig">Panel de saldo y descriptor exportable</td>
+        <td data-i18n="compare.output.inheritance">Plan en texto, PDF, o cifrado</td>
       </tr>
     </tbody>
   </table>
@@ -277,8 +298,8 @@ footer a:hover { text-decoration: underline; }
 
     'hero.title': { es: 'Herramientas de Bitcoin, 100% del lado del cliente', en: 'Bitcoin tools, 100% client-side' },
     'hero.subtitle': {
-      es: 'Cinco herramientas de código abierto que corren enteramente en tu navegador — nada de lo que generás, desbloqueás o firmás sale de la pestaña salvo lo que vos decidas transmitir a la red.',
-      en: 'Five open-source tools that run entirely in your browser — nothing you generate, unlock, or sign leaves the tab except what you choose to broadcast to the network.',
+      es: 'Seis herramientas de código abierto que corren enteramente en tu navegador — nada de lo que generás, desbloqueás o firmás sale de la pestaña salvo lo que vos decidas transmitir a la red.',
+      en: 'Six open-source tools that run entirely in your browser — nothing you generate, unlock, or sign leaves the tab except what you choose to broadcast to the network.',
     },
 
     'card.generate.kicker': { es: 'Generar', en: 'Generate' },
@@ -331,6 +352,16 @@ footer a:hover { text-decoration: underline; }
     'card.multisig.li3': { es: 'Arma, exporta y combina PSBTs entre cosigners', en: 'Builds, exports, and combines PSBTs across cosigners' },
     'card.multisig.li4': { es: 'Escaneo QR (BBQr) y testnet/mainnet', en: 'QR scanning (BBQr) and testnet/mainnet' },
 
+    'card.inheritance.kicker': { es: 'Planificar', en: 'Plan' },
+    'card.inheritance.desc': {
+      es: 'Respondé un cuestionario sobre tu custodia actual y obtené un plan de respaldo y documentación para tus herederos — sin pedir ninguna clave, sin conexión de red, sin guardar nada.',
+      en: 'Answer a questionnaire about your current custody setup and get a backup and documentation plan for your heirs — asking for no key, no network connection, saving nothing.',
+    },
+    'card.inheritance.li1': { es: 'Nunca pide ninguna clave de Bitcoin', en: 'Never asks for any Bitcoin key' },
+    'card.inheritance.li2': { es: 'Diagnóstico de riesgo + camino de mejora', en: 'Risk diagnosis + upgrade path' },
+    'card.inheritance.li3': { es: 'Exportá como texto, PDF, o cifrado', en: 'Export as text, PDF, or encrypted' },
+    'card.inheritance.li4': { es: 'Cero llamadas de red (bloqueado por CSP)', en: 'Zero network calls (blocked by CSP)' },
+
     'card.useNow': { es: 'Usar ahora →', en: 'Use it now →' },
     'card.source': { es: 'Código fuente ↗', en: 'Source code ↗' },
 
@@ -364,6 +395,11 @@ footer a:hover { text-decoration: underline; }
     'compare.output.sign': { es: 'Transacción firmada (hex, QR o PSBT parcial)', en: 'Signed transaction (hex, QR, or partial PSBT)' },
     'compare.output.bridge': { es: 'UTXOs (.json) o TXID transmitido', en: 'UTXOs (.json) or a broadcast TXID' },
     'compare.output.multisig': { es: 'Saldo, descriptor, PSBT sin firmar o tx final', en: 'Balance, descriptor, unsigned PSBT, or final tx' },
+
+    'compare.purpose.inheritance': { es: 'Planificar respaldo y herencia', en: 'Plan backup and inheritance' },
+    'compare.network.inheritance': { es: 'Ninguna (air-gapped)', en: 'None (air-gapped)' },
+    'compare.input.inheritance': { es: 'Respuestas de un cuestionario (nunca una clave)', en: 'Answers to a questionnaire (never a key)' },
+    'compare.output.inheritance': { es: 'Plan en texto, PDF, o cifrado', en: 'Plan as text, PDF, or encrypted' },
 
     'footer.note': {
       es: 'Todo el código es abierto y auditable en <a href="https://github.com/satsforge" target="_blank" rel="noopener noreferrer">github.com/satsforge</a>. Ninguna de las herramientas usa cookies, almacenamiento persistente, ni envía tu semilla o clave privada a ningún servidor.',
